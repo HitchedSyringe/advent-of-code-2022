@@ -20,7 +20,7 @@ def fetch_input(day_number: int) -> bytes:
 
 
 template: str = """
-# Part {0} of Day {1} of Advent of Code 2021.
+# Part {0} of Day {1} of Advent of Code 2022.
 
 from pathlib import Path
 

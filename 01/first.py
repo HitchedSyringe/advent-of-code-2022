@@ -1,5 +1,5 @@
 
-# Part 1 of Day 1 of Advent of Code 2021.
+# Part 1 of Day 1 of Advent of Code 2022.
 
 from pathlib import Path
 
