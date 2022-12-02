@@ -24,9 +24,8 @@ template: str = """
 
 from pathlib import Path
 
-
-with open(Path(__file__).parent / "inputs.txt") as f:
-    pass
+path = Path(__file__).parent / "inputs.txt"
+content = path.read_text()
 
 """
 
