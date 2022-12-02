@@ -4,13 +4,11 @@
 from pathlib import Path
 
 
-with open(Path(__file__).parent / "inputs.txt") as f:
-    content = f.read()
+path = Path(__file__).parent / "inputs.txt"
+content = path.read_text()
 
-    print(content.split("\n\n"))
+elves = [[int(i) for i in c.split("\n") if i] for c in content.split("\n\n")]
 
-    elves = [[int(i) for i in c.split("\n") if i] for c in content.split("\n\n")]
-
-    most_calories = sum(max(elves, key=sum))
+most_calories = sum(max(elves, key=sum))
 
 print("Elf carrying most Calories count: ", most_calories)
