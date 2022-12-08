@@ -1,6 +1,5 @@
 import collections
 from itertools import islice
-from pathlib import Path
 
 
 # itertools recipe from https://docs.python.org/3/library/itertools.html#itertools.islice
