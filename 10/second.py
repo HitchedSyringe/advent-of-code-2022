@@ -9,8 +9,6 @@ from _shared import DrawingCPU
 path = Path(__file__).parent / "inputs.txt"
 content = path.read_text()
 
-content = path.read_text()
-
 lines = content.splitlines()
 cpu = DrawingCPU()
 
