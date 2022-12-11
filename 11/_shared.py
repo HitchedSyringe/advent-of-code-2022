@@ -3,7 +3,7 @@ import math
 import operator
 from itertools import zip_longest
 from collections.abc import Callable, Iterable
-from typing import TYPE_CHECKING, Any, Dict, List, Tuple
+from typing import Any, Dict, List, Tuple
 
 
 _OPERATORS: Dict[str, Callable[[int, int], int]] = {
