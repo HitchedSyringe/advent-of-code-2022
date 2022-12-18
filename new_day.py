@@ -23,19 +23,7 @@ from datetime import datetime
 import requests
 
 
-def get_session() -> str:
-    with open(".session") as f:
-        return f.read().strip()
-
-
-def fetch_input(day_number: int) -> bytes:
-    response = requests.get(
-        f"https://adventofcode.com/2022/day/{day_number}/input",
-        cookies={"session": get_session()}
-    )
-    response.raise_for_status()
-
-    return response.content
+_YEAR: int = datetime.now().year
 
 
 _TEMPLATE: str = '''\
@@ -67,16 +55,29 @@ content = path.read_text()
 '''
 
 
+def get_session() -> str:
+    with open(".session") as f:
+        return f.read().strip()
+
+
+def fetch_input(day_number: int) -> bytes:
+    response = requests.get(
+        f"https://adventofcode.com/{_YEAR}/day/{day_number}/input",
+        cookies={"session": get_session()}
+    )
+    response.raise_for_status()
+
+    return response.content
+
+
 def create_day(day_number: int, puzzle_input: bytes) -> None:
     path = Path(__file__).parent / format(day_number, ">02")
     path.mkdir(exist_ok=True)
 
-    with open(path / "inputs.txt", "wb") as f:
-        f.write(puzzle_input)
+    path.joinpath("inputs.txt").write_bytes(puzzle_input)
 
     for part, name in enumerate(("first.py", "second.py"), 1):
-        fp = path / name
-        fp.write_text(_TEMPLATE.format(part, day_number, datetime.now().year))
+        path.joinpath(name).write_text(_TEMPLATE.format(part, day_number, _YEAR))
 
 
 if __name__ == "__main__":
