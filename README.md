@@ -1,4 +1,4 @@
-[license]: https://github.com/HitSyr/advent-of-code-2022/blob/main/LICENSE
+[license]: https://github.com/HitchedSyringe/advent-of-code-2022/blob/main/LICENSE
 
 # Advent of Code 2022
 
